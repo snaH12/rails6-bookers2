@@ -31,7 +31,6 @@ class BooksController < ApplicationController
     else
       @books = Book.all
       @user = current_user
-      @book = Book.new
       render 'index'
     end
   end
