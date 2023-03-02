@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def update
     ensure_correct_user
     if @user.update(user_params)
-      redirect_to users_path(@user.id), notice: "You have updated user successfully."
+      redirect_to users_path(@user), notice: "You have updated user successfully."
     else
       render:edit
     end
