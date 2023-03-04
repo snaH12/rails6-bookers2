@@ -10,6 +10,7 @@ class FavoritesController < ApplicationController
     def destroy
       book = Book.find(params[:book_id])
       favorite = current_user.favorites.find_by(book_id: book.id)
+      #現在ログインしているユーザのFavoritの中でbook_idとbook.idが一致するもの取得
       favorite.destroy
       redirect_to request.referer
     end
