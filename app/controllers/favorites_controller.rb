@@ -14,4 +14,14 @@ class FavoritesController < ApplicationController
       favorite.destroy
       redirect_to request.referer
     end
+    
+    def follows
+    user = User.find(params[:id])
+    @users = user.followings
+    end
+
+    def followers
+    user = User.find(params[:id])
+    @users = user.followers
+    end
 end
