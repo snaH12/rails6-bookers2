@@ -9,12 +9,16 @@
   </thead>
   <tbody>
       <tr>
-        <% @relationships.each do |relationship| %>
-        <td><%= image_tag @relationships.user.get_profile_image, size: '50x50' %></td>
-        <td><%= @relationship.user.name %></td>
-        <td>フォロー数：<%= @relationships.user.followings.count %></td>
-        <td>フォロワー数：<%= @relationshipuser.followers.count %></td>
+        <% if users.exists? %>
+        <% @users.each do |user| %>
+        <td><%= image_tag @user.get_profile_image, size: '50x50' %></td>
+        <td><%= @user.name %></td>
+        <td>フォロー数：<%= @user.followings.count %></td>
+        <td>フォロワー数：<%= @user.followers.count %></td>
         <td><%= link_to 'Show',user_path(@user) %></td>
+        <% end %>
+        <% else %>
+        <p>ユーザーはいません</p>
         <% end %>
       </tr>
   </tbody>
