@@ -1,0 +1,10 @@
+<% if @range == "User"%>
+<h1>User serch for ""</h1>
+<%= render 'users/index', users: @users %>
+
+<% else %>
+
+<h1>Books serch for ""</h1>
+<%= render '/index', books: @books %>
+
+<% end %>
