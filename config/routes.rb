@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     resources :book_comments, only: [:create,:destroy]
   end
   
-  
+  get "serch" => "serches#sear"
 end
