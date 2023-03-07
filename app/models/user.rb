@@ -10,11 +10,13 @@ class User < ApplicationRecord
   has_many :book_comments, dependent: :destroy
   
   #has_many :xxx, class_name: "モデル名", foreign_key: "○○_id", dependent: :destroy
+  #フォロー
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-  #has_many :yyy, through: :xxx, source: :zzz
   has_many :followings, through: :follower, source: :followed
+  
+  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :followed, source: :follower
+   #has_many :yyy, through: :xxx, source: :zzz
   
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: {maximum:50}
