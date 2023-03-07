@@ -1,0 +1,3 @@
+const element = document.querySelector(".book_comments")
+element.innerHTML = '<%= j(render partial: "book_comments/index", locals: {book: @book}) %>'
+document.querySelector(".comment-box").value = ""
