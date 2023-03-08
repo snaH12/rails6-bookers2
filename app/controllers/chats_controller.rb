@@ -25,7 +25,7 @@ class ChatsController < ApplicationController
       #current_user.idをuser_idとして、room.idをroom_idとして、UserRoomモデルのカラムに保存
      UserRoom.create(user_id: @user.id, room_id: @room.id)
    end
-    @chats = room.chats
+    @chats = @room.chats
    #form_withでチャットを送信する際に必要な空のインスタンス
     @chat = Chat.new(room_id: @room.id)
   end
@@ -34,7 +34,7 @@ class ChatsController < ApplicationController
     @chat = current_user.chats.new(chat_params)
     render :validater unless @chat.save
   end
-
+  
   private
 
   def chat_params
