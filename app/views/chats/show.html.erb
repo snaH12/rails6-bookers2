@@ -3,7 +3,7 @@
         <div class="col-xs-6">
             <h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h2>
             
-            <div class="message">
+            <div class="message"  style="width: 400px;">
             <% @chats.each do |chat| %>
              <% if chat.user_id == current_user.id %>
             <p style="text-align: right;"><%= chat.message %></p>
