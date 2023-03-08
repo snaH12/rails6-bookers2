@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create,:destroy]
   end
-  get "/search" => "searches#search", as: 'chat'
+  get "/search" => "searches#search"
   #チャット
   resources :chats, only: [:show, :create]
   

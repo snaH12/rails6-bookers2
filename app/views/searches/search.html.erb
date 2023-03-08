@@ -1,10 +1,7 @@
-<% if @range == "User"%>
-<h1>User serch for "<%= params[:word] %>"</h1>
-<%= render 'users/index', users: @users %>
-
-<% else %>
-
-<h1>Books serch for "<%= params[:word] %>"</h1>
-<%= render '/index', books: @books %>
-
+<% if @model == 'user' %>
+	<h3>Users search for "<%= @content %>"</h3>
+  <%= render 'users/index', users: @records %>
+<% elsif @model == 'book' %>
+	<h3>Books search for "<%= @content %>"</h3>
+  <%= render 'books/index', books: @records %>
 <% end %>
