@@ -9,11 +9,10 @@ class BooksController < ApplicationController
   def show
     @Book = Book.new
     @book = Book.find(params[:id])
-    @book_comment = BookComment.new
-    @book_detail = Book.find(params[:id])
-    unless ViewCount.find_by(user_id: current_user.id, book_id: @book_detail.id)
-      current_user.view_counts.create(book_id: @book_detail.id)
+    unless ViewCount.find_by(user_id: current_user.id, book_id: @book.id)
+      current_user.view_counts.create(book_id: @book.id)
     end
+    @book_comment = BookComment.new
   end
 
   def index
@@ -25,10 +24,6 @@ class BooksController < ApplicationController
       b.favorites.where(created_at: from...to).size <=> 
       a.favorites.where(created_at: from...to).size
     }
-    @book_detail = Book.find(params[:id])
-    unless ViewCount.find_by(user_id: current_user.id, book_id: @book_detail.id)
-      current_user.view_counts.create(book_id: @book_detail.id)
-    end
   end
 
   def create

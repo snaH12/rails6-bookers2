@@ -6,10 +6,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
-    @book_detail = Book.find(params[:id])
-    unless ViewCount.find_by(user_id: current_user.id, book_id: @book_detail.id)
-      current_user.view_counts.create(book_id: @book_detail.id)
-    end
   end
 
   def index
@@ -26,7 +22,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to users_path(@user), notice: "You have updated user successfully."
     else
-      render:edit
+      render"edit"
     end
   end
   
