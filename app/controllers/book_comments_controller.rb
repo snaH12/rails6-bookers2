@@ -4,13 +4,13 @@ class BookCommentsController < ApplicationController
     @comment = current_user.book_comments.new(book_comment_params)
     @comment.book_id = @book.id
     @comment.save
-    render 'book_comment.js.erb'
+    render 'book_comment'
   end
   
   def destroy
     @comment = BookComment.find_by(id: params[:id], book_id: params[:book_id])
     @comment.destroy
-    render 'book_comment.js.erb'
+    render 'book_comment'
   end
 
   private
