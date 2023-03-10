@@ -9,6 +9,10 @@ class BooksController < ApplicationController
   def show
     @Book = Book.new
     @book = Book.find(params[:id])
+    @today_book = @books.created_today
+    @yesterday_book = @books.created_yesterday
+    @this_week_book = @books.created_this_week
+    @last_week_book = @books.created_last_week
     unless ViewCount.find_by(user_id: current_user.id, book_id: @book.id)
       current_user.view_counts.create(book_id: @book.id)
     end
