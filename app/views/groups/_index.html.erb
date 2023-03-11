@@ -9,7 +9,7 @@
   <tbody>
     <% groups.each do |group| %>
       <tr>
-        <td><%= image_tag group.get_image(50,50) %></td>
+        <td><%= image_tag group.get_image, size: '50x50' %></td>
         <td><%= group.name %></td>
         <td><%= link_to 'Show', group, class: "group_#{group.id}" %></td>
         <% if group.is_owned_by?(current_user) %>
