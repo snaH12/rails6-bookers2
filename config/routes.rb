@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   #チャット
   resources :chats, only: [:show, :create]
   #グループ機能
-  resources :groups, except: [:destroy]
+  resources :groups, except: [:destroy] do
+    get "join" => "groups#join"
+  end
   
 end
