@@ -13,7 +13,7 @@
         <td><%= group.name %></td>
         <td><%= link_to 'Show', group, class: "group_#{group.id}" %></td>
         <% if group.is_owned_by?(current_user) %>
-          <td><%= link_to 'Edit', edit_group_path(group), class: "group_#{group.id}" %></td>
+          <td><%= link_to 'Edit', edit_group_path(group), class: "group_#{group.id} btn btn-sm btn-success" %></td>
         <% end %>
       </tr>
     <% end %>
