@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   #グループ機能
   resources :groups, only: [:new, :index, :show, :create, :edit, :update] do
    resource :group_users, only: [:create, :destroy]
+  
+  resources :events
   end
   
 end
